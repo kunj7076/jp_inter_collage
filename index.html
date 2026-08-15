@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jai Prakash Inter College, Bheriya | Official Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0b2545',
+                            dark: '#13315c',
+                            gold: '#d4af37',
+                            maroon: '#800000',
+                            light: '#f8fafc'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+        .animate-ticker {
+            display: inline-flex;
+            white-space: nowrap;
+            animation: ticker 25s linear infinite;
+        }
+        .animate-ticker:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- 1. TOP UTILITY BAR -->
+    <div class="bg-brand-navy text-slate-200 text-xs py-2 px-4 border-b border-slate-700">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-6">
+                <span><i class="fa-solid fa-location-dot text-brand-gold mr-1"></i> Bheriya, Uttar Pradesh</span>
+                <span><i class="fa-solid fa-envelope text-brand-gold mr-1"></i> info@jpintercollege.in</span>
+                <span><i class="fa-solid fa-phone text-brand-gold mr-1"></i> +91 98765 43210</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="bg-brand-gold/20 text-brand-gold px-2 py-0.5 rounded font-semibold text-[11px]">UP Board Affiliated</span>
+                <a href="#admission" class="text-white hover:text-brand-gold transition font-medium">Online Admission 2026-27</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. MAIN BRAND HEADER -->
+    <header class="bg-white shadow-sm border-b border-slate-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-14 h-14 bg-brand-navy text-brand-gold rounded-full flex items-center justify-center font-heading text-2xl font-bold border-2 border-brand-gold shadow-md">
+                    JP
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-2xl font-heading font-bold text-brand-navy uppercase tracking-wide leading-tight">
+                        Jai Prakash Inter College
+                    </h1>
+                    <p class="text-xs sm:text-sm text-slate-500 font-medium tracking-wide">Bheriya • Affiliated to UP State Board</p>
+                </div>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-700">
+                <a href="#home" class="text-brand-navy hover:text-brand-gold transition">Home</a>
+                <a href="#about" class="hover:text-brand-gold transition">About Us</a>
+                <a href="#academics" class="hover:text-brand-gold transition">Academics</a>
+                <a href="#facilities" class="hover:text-brand-gold transition">Facilities</a>
+                <a href="#notices" class="hover:text-brand-gold transition">Notice Board</a>
+                <a href="#admission" class="bg-brand-maroon hover:bg-red-900 text-white px-4 py-2 rounded shadow transition">Apply Now</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="lg:hidden text-slate-700 text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t px-4 py-3 space-y-2 text-sm font-semibold">
+            <a href="#home" class="block py-1.5 text-brand-navy">Home</a>
+            <a href="#about" class="block py-1.5">About Us</a>
+            <a href="#academics" class="block py-1.5">Academics</a>
+            <a href="#facilities" class="block py-1.5">Facilities</a>
+            <a href="#notices" class="block py-1.5">Notice Board</a>
+            <a href="#admission" class="block py-2 bg-brand-maroon text-white text-center rounded">Apply Now</a>
+        </div>
+    </header>
+
+    <!-- 3. RUNNING NOTICE TICKER -->
+    <div class="bg-amber-100 border-y border-amber-200 py-2.5 px-4 overflow-hidden flex items-center">
+        <div class="bg-brand-maroon text-white text-xs font-bold uppercase px-3 py-1 rounded shrink-0 mr-3 shadow-sm">
+            <i class="fa-solid fa-bullhorn mr-1"></i> Latest
+        </div>
+        <div class="overflow-hidden w-full relative">
+            <div class="animate-ticker text-xs sm:text-sm font-medium text-slate-800 space-x-12">
+                <span>🔔 सत्र 2026-27 के लिए कक्षा 9वीं एवं 11वीं के प्रवेश प्रारम्भ हैं।</span>
+                <span>📅 अर्धवार्षिक परीक्षा समय सारणी (Date Sheet) शीघ्र जारी होगी।</span>
+                <span>🏆 कॉलेज के 10वीं व 12वीं के मेधावी छात्र-छात्राओं का सम्मान समारोह आगामी शनिवार को।</span>
+                <span>🔔 सत्र 2026-27 के लिए कक्षा 9वीं एवं 11वीं के प्रवेश प्रारम्भ हैं।</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. HERO SECTION -->
+    <section id="home" class="relative bg-gradient-to-r from-brand-navy via-brand-dark to-slate-900 text-white py-20 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <span class="inline-block bg-brand-gold/20 text-brand-gold border border-brand-gold/30 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+                    ज्ञानम् परमम् ध्येयम्
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-bold font-heading leading-tight">
+                    शिक्षा, संस्कार और सर्वांगीण विकास का केंद्र
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                    जय प्रकाश इंटर कॉलेज, भेड़िया — ग्रामीण एवं सुदूर क्षेत्र के विद्यार्थियों को आधुनिक, गुणवत्तापूर्ण एवं अनुशासित शिक्षा प्रदान करने हेतु सदैव प्रतिबद्ध।
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#admission" class="bg-brand-gold hover:bg-yellow-500 text-slate-900 font-bold px-6 py-3 rounded-lg shadow-lg transition">
+                        प्रवेश फॉर्म भरें (Admissions)
+                    </a>
+                    <a href="#about" class="border border-slate-300 hover:bg-white hover:text-slate-900 text-white font-medium px-6 py-3 rounded-lg transition">
+                        कॉलेज के बारे में जानें
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Highlights Card -->
+            <div class="lg:col-span-5 bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 shadow-2xl text-slate-100">
+                <h3 class="text-xl font-bold font-heading mb-4 text-brand-gold border-b border-white/10 pb-2">
+                    कॉलेज की मुख्य विशेषताएं
+                </h3>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check text-brand-gold mt-1"></i> <span>अनुभवी एवं समर्पित शिक्षक मंडल (Experienced Faculty)</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check text-brand-gold mt-1"></i> <span>भौतिक, रसायन एवं जीव विज्ञान की आधुनिक प्रयोगशालाएं</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check text-brand-gold mt-1"></i> <span>विशाल खेल का मैदान एवं खेलकूद प्रशिक्षण</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check text-brand-gold mt-1"></i> <span>बोर्ड परीक्षाओं में लगातार उत्कृष्ट परीक्षा परिणाम</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. KEY STATS -->
+    <section class="bg-white py-10 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                <div class="text-3xl font-bold text-brand-navy">1500+</div>
+                <div class="text-xs sm:text-sm text-slate-500 font-medium mt-1">कुल नामांकित छात्र</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                <div class="text-3xl font-bold text-brand-navy">98%</div>
+                <div class="text-xs sm:text-sm text-slate-500 font-medium mt-1">बोर्ड परीक्षा परिणाम</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                <div class="text-3xl font-bold text-brand-navy">35+</div>
+                <div class="text-xs sm:text-sm text-slate-500 font-medium mt-1">योग्य प्राध्यापक व शिक्षक</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                <div class="text-3xl font-bold text-brand-navy">100%</div>
+                <div class="text-xs sm:text-sm text-slate-500 font-medium mt-1">अनुशासित वातावरण</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PRINCIPAL'S MESSAGE & ABOUT -->
+    <section id="about" class="py-16 px-4 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5 text-center">
+                <div class="w-56 h-56 mx-auto bg-slate-200 rounded-2xl border-4 border-brand-gold overflow-hidden shadow-xl flex items-center justify-center text-slate-400">
+                    <i class="fa-solid fa-user-tie text-7xl text-slate-400"></i>
+                </div>
+                <h4 class="text-lg font-bold text-brand-navy mt-4">प्रधानाचार्य का संदेश</h4>
+                <p class="text-xs text-slate-500">जय प्रकाश इंटर कॉलेज, भेड़िया</p>
+            </div>
+            <div class="lg:col-span-7 space-y-4">
+                <h3 class="text-2xl sm:text-3xl font-bold font-heading text-brand-navy">
+                    हमारे संस्थान का विज़न और उद्देश्य
+                </h3>
+                <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                    प्रिय अभिभावक एवं छात्रगण, जय प्रकाश इंटर कॉलेज का लक्ष्य केवल किताबी ज्ञान देना नहीं, बल्कि प्रत्येक विद्यार्थी के चरित्र, नैतिक मूल्यों और बौद्धिक क्षमता को निखारना है। हम ग्रामीण अंचल के विद्यार्थियों को राष्ट्र निर्माण के योग्य बनाने हेतु कृतसंकल्पित हैं।
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-brand-maroon">
+                        <h5 class="font-bold text-slate-800 text-sm">हमारा उद्देश्य (Mission)</h5>
+                        <p class="text-xs text-slate-500 mt-1">सस्ती, सुलभ एवं गुणवत्तापूर्ण उच्च-माध्यमिक शिक्षा हर वर्ग तक पहुंचाना।</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-brand-navy">
+                        <h5 class="font-bold text-slate-800 text-sm">हमारा विज़न (Vision)</h5>
+                        <p class="text-xs text-slate-500 mt-1">संस्कारित, तकनीकी रूप से दक्ष और आत्मनिर्भर युवा पीढ़ी तैयार करना।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. ACADEMIC STREAMS -->
+    <section id="academics" class="py-16 bg-slate-100 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h3 class="text-2xl sm:text-3xl font-bold font-heading text-brand-navy">शैक्षणिक संकाय (Academic Streams)</h3>
+                <p class="text-xs sm:text-sm text-slate-600 mt-2">कक्षा 9वीं से 12वीं तक उपलब्ध विषय एवं संकाय</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Science Stream -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-600">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-flask"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-800 mb-2">विज्ञान वर्ग (Science)</h4>
+                    <p class="text-xs text-slate-500 mb-4">गणित एवं जीव विज्ञान वर्ग की प्रायोगिक शिक्षा</p>
+                    <ul class="text-xs space-y-2 text-slate-600">
+                        <li>• भौतिक विज्ञान (Physics)</li>
+                        <li>• रसायन विज्ञान (Chemistry)</li>
+                        <li>• जीव विज्ञान / गणित (Biology / Math)</li>
+                        <li>• सामान्य हिंदी एवं अंग्रेजी</li>
+                    </ul>
+                </div>
+
+                <!-- Arts Stream -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-amber-600">
+                    <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-lg flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-800 mb-2">कला वर्ग (Arts / Humanities)</h4>
+                    <p class="text-xs text-slate-500 mb-4">साहित्य, इतिहास एवं सामाजिक विषयों का गहन अध्ययन</p>
+                    <ul class="text-xs space-y-2 text-slate-600">
+                        <li>• इतिहास एवं नागरिक शास्त्र</li>
+                        <li>• भूगोल एवं अर्थशास्त्र</li>
+                        <li>• समाजशास्त्र एवं संस्कृत</li>
+                        <li>• हिंदी साहित्य</li>
+                    </ul>
+                </div>
+
+                <!-- High School Common -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-emerald-600">
+                    <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-800 mb-2">हाईस्कूल (कक्षा 9 व 10)</h4>
+                    <p class="text-xs text-slate-500 mb-4">UP Board पाठ्यक्रम अनुसार आधारभूत शिक्षा</p>
+                    <ul class="text-xs space-y-2 text-slate-600">
+                        <li>• हिंदी, अंग्रेजी व संस्कृत</li>
+                        <li>• गणित एवं विज्ञान</li>
+                        <li>• सामाजिक विज्ञान</li>
+                        <li>• चित्रकला एवं कंप्यूटर</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. ONLINE ADMISSION ENQUIRY FORM (NETLIFY READY) -->
+    <section id="admission" class="py-16 px-4 max-w-5xl mx-auto">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+            <div class="bg-brand-navy text-white p-6 sm:p-8 text-center">
+                <h3 class="text-2xl sm:text-3xl font-heading font-bold">ऑनलाइन प्रवेश पूछताछ / पंजीकरण (2026-27)</h3>
+                <p class="text-slate-300 text-xs sm:text-sm mt-2">नीचे दिया गया फॉर्म भरें, कॉलेज कार्यालय से शीघ्र संपर्क किया जाएगा।</p>
+            </div>
+            
+            <!-- Netlify Form Integration -->
+            <form name="admission-enquiry" method="POST" data-netlify="true" class="p-6 sm:p-8 space-y-6">
+                <!-- Netlify hidden input -->
+                <input type="hidden" name="form-name" value="admission-enquiry" />
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">छात्र/छात्रा का पूरा नाम (Student Name) *</label>
+                        <input type="text" name="student_name" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-navy text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">पिता/अभिभावक का नाम (Father's Name) *</label>
+                        <input type="text" name="father_name" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-navy text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">मोबाइल नंबर (Mobile Number) *</label>
+                        <input type="tel" name="mobile" required pattern="[0-9]{10}" placeholder="10-digit mobile" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-navy text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">प्रवेश हेतु कक्षा (Class Applying For) *</label>
+                        <select name="class_applied" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-navy text-sm">
+                            <option value="">कक्षा चुनें...</option>
+                            <option value="Class 9">कक्षा 9 (9th)</option>
+                            <option value="Class 10">कक्षा 10 (10th)</option>
+                            <option value="Class 11 Science">कक्षा 11 - विज्ञान (Science)</option>
+                            <option value="Class 11 Arts">कक्षा 11 - कला (Arts)</option>
+                            <option value="Class 12 Science">कक्षा 12 - विज्ञान (Science)</option>
+                            <option value="Class 12 Arts">कक्षा 12 - कला (Arts)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">पूरा पता / गांव (Address / Village) *</label>
+                    <textarea name="address" rows="2" required class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-navy text-sm"></textarea>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="bg-brand-maroon hover:bg-red-900 text-white font-bold px-8 py-3 rounded-lg shadow-lg transition w-full sm:w-auto">
+                        <i class="fa-solid fa-paper-plane mr-2"></i> आवेदन सबमिट करें
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- 9. FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-12 px-4 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h5 class="text-white font-heading font-bold text-base mb-3">जय प्रकाश इंटर कॉलेज</h5>
+                <p class="leading-relaxed">भेड़िया, उत्तर प्रदेश<br>पिन कोड: (आपका पिन कोड)</p>
+                <p class="mt-2">ईमेल: info@jpintercollege.in</p>
+                <p>फोन: +91 98765 43210</p>
+            </div>
+            <div>
+                <h5 class="text-white font-bold text-sm mb-3">त्वरित लिंक (Quick Links)</h5>
+                <ul class="space-y-2">
+                    <li><a href="#about" class="hover:text-white transition">कॉलेज के बारे में</a></li>
+                    <li><a href="#academics" class="hover:text-white transition">संकाय व विषय</a></li>
+                    <li><a href="#admission" class="hover:text-white transition">प्रवेश फॉर्म</a></li>
+                    <li><a href="#notices" class="hover:text-white transition">सूचना पट्ट (Notices)</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white font-bold text-sm mb-3">कॉलेज समय (Office Hours)</h5>
+                <p class="leading-relaxed">सोमवार - शनिवार: 08:00 AM - 02:00 PM<br>रविवार: अवकाश</p>
+                <div class="mt-4 flex gap-3 text-lg text-slate-300">
+                    <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-8 pt-6 border-t border-slate-800 text-center">
+            <p>© 2026 Jai Prakash Inter College, Bheriya. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
