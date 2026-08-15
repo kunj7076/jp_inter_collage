@@ -1,0 +1,133 @@
+/* ==========================================================================
+   Jai Prakash Inter College - Modern UI Animations & Enhancements
+   ========================================================================== */
+
+/* 1. Custom Smooth Scrolling & Scrollbar */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Sticky header ke piche content dabne se rokta hai */
+}
+
+/* Custom Webkit Scrollbar */
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0b2545;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #800000;
+}
+
+/* 2. Text Selection Color */
+::selection {
+    background-color: #d4af37;
+    color: #0b2545;
+}
+
+/* 3. Running Notice Ticker Animation */
+@keyframes noticeTicker {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+.animate-ticker {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: noticeTicker 24s linear infinite;
+    will-change: transform;
+}
+
+.animate-ticker:hover {
+    animation-play-state: paused;
+}
+
+/* 4. Topper Cards Modern Hover & Glow Effects */
+#toppers .grid > div {
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+#toppers .grid > div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(212, 175, 55, 0.15) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    transition: all 0.75s ease;
+}
+
+#toppers .grid > div:hover::before {
+    left: 150%;
+}
+
+#toppers .grid > div:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(11, 37, 69, 0.12), 0 10px 10px -5px rgba(11, 37, 69, 0.04);
+    border-top-color: #800000;
+}
+
+#toppers .grid > div:hover .w-20 {
+    transform: scale(1.08);
+    transition: transform 0.3s ease;
+    border-color: #800000;
+}
+
+/* 5. Academic Stream Cards & Facility Hover Effects */
+#academics .grid > div,
+#facilities .grid > div {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+#academics .grid > div:hover,
+#facilities .grid > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 20px -4px rgba(0, 0, 0, 0.08);
+}
+
+/* 6. Form Field Focus & Glow */
+input:focus,
+select:focus,
+textarea:focus {
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 0 0 3px rgba(11, 37, 69, 0.15) !important;
+}
+
+/* 7. Subtle Pulse for Admission Buttons */
+@keyframes subtlePulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+    }
+}
+
+a[href="#admission"].bg-brandGold {
+    animation: subtlePulse 3s infinite;
+}
+
+/* 8. Mobile Menu Slide Transition */
+#mobileMenu {
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+}
