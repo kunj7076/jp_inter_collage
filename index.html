@@ -639,6 +639,77 @@
         </div>
     </div>
 
+    <!-- NOTICE POP-UP MODAL (COMPLETE NOTICE BOARD) -->
+    <div id="noticeModal" class="fixed inset-0 z-50 bg-slate-900/75 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full my-8 overflow-hidden relative max-h-[85vh] flex flex-col animate-scaleUp">
+            
+            <!-- Modal Header -->
+            <div class="bg-brandNavy text-white p-5 flex items-center justify-between shrink-0">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-full bg-brandGold/20 flex items-center justify-center text-brandGold border border-brandGold/40">
+                        <i class="fa-solid fa-bullhorn text-sm"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-heading font-bold">Official Notice Board (सूचना पट्ट)</h3>
+                        <p class="text-[11px] text-slate-300">जय प्रकाश इंटर कॉलेज • नवीनतम सूचनाएं एवं आदेश</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('noticeModal')" class="text-slate-300 hover:text-white text-2xl focus:outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Notices List (Scrollable) -->
+            <div class="p-6 overflow-y-auto space-y-4" id="allNoticesContainer">
+                
+                <!-- Notice 1 -->
+                <div class="p-4 bg-amber-50/60 rounded-xl border-l-4 border-brandMaroon border border-amber-200">
+                    <div class="flex items-center justify-between gap-2 mb-1.5">
+                        <span class="bg-brandMaroon text-white text-[10px] font-bold px-2 py-0.5 rounded">NEW / आवश्यक</span>
+                        <span class="text-[11px] text-slate-500 font-medium"><i class="fa-regular fa-calendar mr-1"></i> Session 2026-27</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-sm sm:text-base">कक्षा 6वीं से 11वीं तक नवीन प्रवेश प्रारम्भ (Admissions Open)</h4>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                        सत्र 2026-27 के लिए कक्षा 6, 7, 8, 9 एवं 11 (विज्ञान एवं कला वर्ग) में नवीन प्रवेश हेतु पंजीकरण प्रारम्भ हैं। इच्छुक अभिभावक ऑनलाइन प्रवेश फॉर्म भर सकते हैं अथवा कार्यालय समय में आकर विवरण पुस्तिका प्राप्त करें।
+                    </p>
+                </div>
+
+                <!-- Notice 2 -->
+                <div class="p-4 bg-slate-50 rounded-xl border-l-4 border-blue-600 border border-slate-200">
+                    <div class="flex items-center justify-between gap-2 mb-1.5">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">EXAMINATION</span>
+                        <span class="text-[11px] text-slate-500 font-medium"><i class="fa-regular fa-calendar mr-1"></i> परीक्षा अनुभाग</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-sm sm:text-base">अर्धवार्षिक परीक्षा समय सारणी (Half-Yearly Time Table)</h4>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                        कक्षा 9वीं से 12वीं की अर्धवार्षिक प्रायोगिक व लिखित परीक्षाओं की समय सारणी कॉलेज नोटिस बोर्ड पर चस्पा कर दी गई है। सभी विद्यार्थी अपने प्रवेश पत्र व समय सारणी का मिलान कर लें।
+                    </p>
+                </div>
+
+                <!-- Notice 3 -->
+                <div class="p-4 bg-slate-50 rounded-xl border-l-4 border-emerald-600 border border-slate-200">
+                    <div class="flex items-center justify-between gap-2 mb-1.5">
+                        <span class="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">SPORTS & ACTIVITY</span>
+                        <span class="text-[11px] text-slate-500 font-medium"><i class="fa-regular fa-calendar mr-1"></i> खेलकूद विभाग</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-sm sm:text-base">वार्षिक खेलकूद प्रतियोगिता एवं मेधावी सम्मान</h4>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                        आगामी खेल दिवस पर 100 मी. दौड़, कबड्डी, वॉलीबॉल व खो-खो प्रतियोगिताओं का आयोजन किया जाएगा। प्रतिभागी छात्र पी.टी. शिक्षक के पास अपना नाम दर्ज करवाएं।
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 border-t border-slate-200 bg-slate-50 flex justify-between items-center">
+                <span class="text-[11px] text-slate-500">कार्यालय समय: प्रातः 08:00 से दोपहर 02:00</span>
+                <button onclick="closeModal('noticeModal')" class="px-5 py-2 bg-brandNavy text-white rounded-lg text-xs font-semibold hover:bg-slate-800 transition">
+                    Close (बंद करें)
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- MODAL 3: FACILITIES MODAL -->
     <div id="facilitiesModal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
         <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full my-8 overflow-hidden relative max-h-[85vh] flex flex-col">
