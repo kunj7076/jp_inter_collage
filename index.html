@@ -157,17 +157,20 @@
         </div>
     </header>
 
-    <!-- 3. NOTICE TICKER -->
+<!-- 3. INTERACTIVE NOTICE TICKER (CLICK TO OPEN ALL NOTICES) -->
     <div class="bg-amber-50 border-y border-amber-200 py-2.5 px-4 overflow-hidden flex items-center">
-        <div class="bg-brandMaroon text-white text-xs font-bold uppercase px-3 py-1 rounded shrink-0 mr-3 shadow-sm flex items-center gap-1.5">
-            <i class="fa-solid fa-bullhorn"></i> <span>Notice</span>
-        </div>
-        <div class="overflow-hidden w-full relative">
+        <!-- Clickable Notice Button -->
+        <button onclick="openModal('noticeModal')" class="bg-brandMaroon hover:bg-red-900 text-white text-xs font-bold uppercase px-3.5 py-1.5 rounded-lg shrink-0 mr-3 shadow flex items-center gap-1.5 transition cursor-pointer">
+            <i class="fa-solid fa-bullhorn"></i> <span>Notice Board (सूचना)</span>
+        </button>
+        
+        <!-- Running Clickable Ticker -->
+        <div class="overflow-hidden w-full relative cursor-pointer" onclick="openModal('noticeModal')" title="Click to view all notices">
             <div class="animate-ticker text-xs sm:text-sm font-medium text-slate-800 space-x-12">
-                <span>🔔 Admissions Open for Session 2026-27 (कक्षा 6वीं से 11वीं तक नए प्रवेश प्रारम्भ हैं)।</span>
-                <span>📅 Half-Yearly Exam Time Table शीघ्र जारी होगा।</span>
-                <span>🏆 Board Examination me shandar pradarshan karne wale vidyarthiyon ko badhai!</span>
-                <span>🔔 Admissions Open for Session 2026-27 (कक्षा 6वीं से 11वीं तक नए प्रवेश प्रारम्भ हैं)।</span>
+                <span class="hover:text-brandMaroon hover:underline">🔔 Admissions Open for Session 2026-27 (कक्षा 6वीं से 11वीं तक नए प्रवेश प्रारम्भ हैं)।</span>
+                <span class="hover:text-brandMaroon hover:underline">📅 Half-Yearly Exam Time Table (अर्धवार्षिक परीक्षा समय सारणी) शीघ्र जारी होगी।</span>
+                <span class="hover:text-brandMaroon hover:underline">🏆 Board Examination मेधावी छात्र सम्मान समारोह की सूचना।</span>
+                <span class="hover:text-brandMaroon hover:underline">🔔 Admissions Open for Session 2026-27 (कक्षा 6वीं से 11वीं तक नए प्रवेश प्रारम्भ हैं)।</span>
             </div>
         </div>
     </div>
