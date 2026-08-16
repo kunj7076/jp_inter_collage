@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: kunj7076/jp_inter_collage  # Aapka GitHub username aur repo name
+  repo: kunj7076/jp_inter_collage
   branch: main
-  base_url: https://decap-cms-oauth.vercel.app  # Free public OAuth server for Vercel
+  base_url: https://decap-cms-oauth.vercel.app
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
@@ -12,18 +12,19 @@ collections:
     label: "Notice Board (सूचनाएं)"
     folder: "_data/notices"
     create: true
+    extension: "json"
+    format: "json"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Notice Title", name: "title", widget: "string" }
+      - { label: "Notice Text", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Urgent/Latest?", name: "urgent", widget: "boolean", default: true }
-      - { label: "Notice Details", name: "body", widget: "markdown" }
 
   - name: "gallery"
-    label: "Photo Gallery (फोटो गैलरी)"
+    label: "Photo Gallery (फोटो)"
     folder: "_data/gallery"
     create: true
+    extension: "json"
+    format: "json"
     fields:
-      - { label: "Event Title", name: "title", widget: "string" }
-      - { label: "Category", name: "category", widget: "select", options: ["Sports Day", "Science Fair", "Cultural Fest", "Campus"] }
-      - { label: "Photo Upload", name: "image", widget: "image" }
+      - { label: "Photo Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
