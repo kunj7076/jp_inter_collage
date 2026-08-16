@@ -1,12 +1,797 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Portal | Jai Prakash Inter College</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jai Prakash Inter College, Bheriya | जय प्रकाश इंटर कॉलेज</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandNavy: '#0b2545',
+                        brandDark: '#13315c',
+                        brandGold: '#d4af37',
+                        brandMaroon: '#800000',
+                        brandLight: '#f8fafc'
+                    },
+                    fontFamily: {
+                        heading: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+        .animate-ticker {
+            display: inline-flex;
+            white-space: nowrap;
+            animation: ticker 25s linear infinite;
+        }
+        .animate-ticker:hover {
+            animation-play-state: paused;
+        }
+
+        /* Continuous Photo Strip Animation */
+        @keyframes scrollPhotos {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-photos {
+            display: flex;
+            width: max-content;
+            animation: scrollPhotos 20s linear infinite;
+        }
+        .animate-photos:hover {
+            animation-play-state: paused;
+        }
+    </style>
 </head>
-<body>
-  <!-- Decap CMS Core Script -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- Floating WhatsApp Helpline Button -->
+    <a href="https://wa.me/919876543210?text=Namaste,%20mujhe%20Jai%20Prakash%20Inter%20College%20me%20admission%20ki%20jaankari%20chahiye." 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center text-2xl transition transform hover:scale-110 border-2 border-white"
+       title="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- 1. TOP UTILITY BAR -->
+   
+            <div class="flex items-center gap-3">
+                <span class="bg-brandGold/20 text-brandGold px-2.5 py-0.5 rounded font-semibold text-[11px] border border-brandGold/30">
+                    Classes 6th to 12th • UP Board Affiliated • मान्यता प्राप्त 
+                </span>
+                <button onclick="openModal('admissionModal')" class="text-white hover:text-brandGold transition font-medium hidden sm:inline-block">
+                    Admission 2026-27
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. MAIN HEADER -->
+    <header class="bg-white shadow-sm border-b border-slate-100 sticky top-0 z-30">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-brandNavy text-brandGold rounded-full flex items-center justify-center font-heading text-xl font-bold border-2 border-brandGold shadow-md shrink-0">
+                    JP
+                </div>
+                <div>
+                    <h1 class="text-base sm:text-2xl font-heading font-bold text-brandNavy tracking-wide leading-tight uppercase">
+                        Jai Prakash Inter College
+                    </h1>
+                    <p class="text-[11px] sm:text-xs text-slate-500 font-medium">जय प्रकाश इंटर कॉलेज, भेड़िया • Class 6 to 12</p>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links (Clean Modal Triggers) -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-700">
+                <a href="#about" class="hover:text-brandMaroon transition">About (परिचय)</a>
+                <button onclick="openModal('academicsModal')" class="hover:text-brandMaroon transition flex items-center gap-1">
+                    <i class="fa-solid fa-book-open text-brandGold"></i> Academics (संकाय)
+                </button>
+                <button onclick="openModal('facilitiesModal')" class="hover:text-brandMaroon transition flex items-center gap-1">
+                    <i class="fa-solid fa-flask text-brandGold"></i> Facilities (सुविधाएं)
+                </button>
+                <button onclick="openModal('facultyModal')" class="hover:text-brandMaroon transition flex items-center gap-1">
+                    <i class="fa-solid fa-chalkboard-user text-brandGold"></i> Faculty (शिक्षक)
+                </button>
+                <a href="#toppers" class="hover:text-brandMaroon transition">Toppers</a>
+                <a href="#contact" class="hover:text-brandMaroon transition">Contact</a>
+                <button onclick="openModal('admissionModal')" class="bg-brandMaroon hover:bg-red-900 text-white px-4 py-2 rounded-lg shadow transition">
+                    Apply Online
+                </button>
+            </nav>
+
+            <!-- Mobile Hamburger Button -->
+            <div class="md:hidden flex items-center">
+                <button id="menuToggleBtn" type="button" aria-label="Toggle Navigation" class="text-brandNavy p-2 text-2xl focus:outline-none hover:text-brandMaroon transition">
+                    <i class="fa-solid fa-bars" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-50 border-t border-slate-200 px-4 py-4 space-y-3 shadow-inner">
+            <a href="#about" class="mobile-link block font-semibold text-slate-700 py-2 border-b border-slate-200">
+                <i class="fa-solid fa-school text-brandNavy mr-2"></i> About College
+            </a>
+            <button onclick="openModal('academicsModal'); toggleMobileMenu();" class="w-full text-left font-semibold text-slate-700 py-2 border-b border-slate-200 flex items-center gap-2">
+                <i class="fa-solid fa-book-open text-brandNavy"></i> Academics & Streams (संकाय)
+            </button>
+            <button onclick="openModal('facilitiesModal'); toggleMobileMenu();" class="w-full text-left font-semibold text-slate-700 py-2 border-b border-slate-200 flex items-center gap-2">
+                <i class="fa-solid fa-flask text-brandNavy"></i> Campus Facilities (सुविधाएं)
+            </button>
+            <button onclick="openModal('facultyModal'); toggleMobileMenu();" class="w-full text-left font-semibold text-slate-700 py-2 border-b border-slate-200 flex items-center gap-2">
+                <i class="fa-solid fa-chalkboard-user text-brandNavy"></i> Faculty Members (शिक्षक)
+            </button>
+            <a href="#toppers" class="mobile-link block font-semibold text-slate-700 py-2 border-b border-slate-200">
+                <i class="fa-solid fa-award text-brandNavy mr-2"></i> Star Achievers (मेधावी)
+            </a>
+            <a href="#contact" class="mobile-link block font-semibold text-slate-700 py-2 border-b border-slate-200">
+                <i class="fa-solid fa-location-dot text-brandNavy mr-2"></i> Contact & Location
+            </a>
+            <div class="pt-2">
+                <button onclick="openModal('admissionModal'); toggleMobileMenu();" class="w-full bg-brandMaroon text-white text-center font-bold py-2.5 rounded-lg shadow">
+                    Online Admission Form (प्रवेश फॉर्म)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. NOTICE TICKER -->
+    <div class="bg-amber-50 border-y border-amber-200 py-2.5 px-4 overflow-hidden flex items-center">
+        <div class="bg-brandMaroon text-white text-xs font-bold uppercase px-3 py-1 rounded shrink-0 mr-3 shadow-sm flex items-center gap-1.5">
+            <i class="fa-solid fa-bullhorn"></i> <span>Notice</span>
+        </div>
+        <div class="overflow-hidden w-full relative">
+            <div class="animate-ticker text-xs sm:text-sm font-medium text-slate-800 space-x-12">
+                <span>🔔 Admissions Open for Session 2026-27 (कक्षा 6वीं से 11वीं तक नए प्रवेश प्रारम्भ हैं)।</span>
+                <span>📅 Half-Yearly Exam Time Table शीघ्र जारी होगा।</span>
+                <span>🏆 Board Examination me shandar pradarshan karne wale vidyarthiyon ko badhai!</span>
+                <span>🔔 Admissions Open for Session 2026-27 (कक्षा 6वीं से 11वीं तक नए प्रवेश प्रारम्भ हैं)।</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. HERO SECTION -->
+    <section class="relative bg-gradient-to-r from-brandNavy via-brandDark to-slate-900 text-white py-16 sm:py-20 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            <div class="lg:col-span-7 space-y-6 text-center sm:text-left">
+                <span class="inline-block bg-brandGold/20 text-brandGold border border-brandGold/30 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+                    ज्ञानम् परमम् ध्येयम् • Quality Education
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-bold font-heading leading-tight">
+                    Shaping Bright Futures with Discipline & Values
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    जय प्रकाश इंटर कॉलेज, भेड़िया — ग्रामीण क्षेत्र के विद्यार्थियों को Class 6th से 12th तक आधुनिक, संस्कारी एवं उत्कृष्ट शिक्षा प्रदान करने हेतु सदैव समर्पित।
+                </p>
+                <div class="flex flex-wrap gap-3 pt-2 justify-center sm:justify-start">
+                    <button onclick="openModal('admissionModal')" class="bg-brandGold hover:bg-yellow-500 text-slate-900 font-bold px-6 py-3 rounded-lg shadow-lg transition flex items-center gap-2">
+                        <i class="fa-solid fa-file-pen"></i> Admission Form
+                    </button>
+                   
+                </div>
+            </div>
+
+            <!-- College Highlights Card -->
+            <div class="lg:col-span-5 bg-white/10 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/20 shadow-2xl text-slate-100">
+                <h3 class="text-lg font-bold font-heading mb-4 text-brandGold border-b border-white/10 pb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-award text-brandGold"></i> Key Highlights (प्रमुख विशेषताएं)
+                </h3>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check text-brandGold mt-1"></i> <span>Strong Foundation for Middle Wing (कक्षा 6 से 8)</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check text-brandGold mt-1"></i> <span>UP Board Mentorship for High School & Intermediate</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check text-brandGold mt-1"></i> <span>Well-Equipped Physics, Chem & Biology Labs</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check text-brandGold mt-1"></i> <span>Large Playground, Sports Training & Disciplined Campus</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SLENDER AUTO-SLIDING PHOTO CAROUSEL (STATS KI JAGAH PATLA PHOTO SECTION) -->
+    <section class="bg-slate-900 py-3 overflow-hidden border-y border-slate-1000">
+        <div class="animate-photos flex gap-4 items-center">
+            
+            <!-- Photo 1 -->
+            <div class="h-38 w-44 sm:h-32 sm:w-56 rounded-xl overflow-hidden shadow-md shrink-0 relative group">
+                <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Campus Building">
+               
+            </div>
+
+            <!-- Photo 2 -->
+            <div class="h-38 w-44 sm:h-32 sm:w-56 rounded-xl overflow-hidden shadow-md shrink-0 relative group">
+                <img src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Science Exhibition">
+               
+            </div>
+
+            <!-- Photo 3 -->
+            <div class="h-38 w-44 sm:h-32 sm:w-56 rounded-xl overflow-hidden shadow-md shrink-0 relative group">
+                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Sports Day">
+                
+            </div>
+
+            <!-- Photo 4 -->
+            <div class="h-38 w-44 sm:h-32 sm:w-56 rounded-xl overflow-hidden shadow-md shrink-0 relative group">
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Classrooms">
+                
+            </div>
+
+            <!-- Photo 5 -->
+            <div class="h-38 w-44 sm:h-32 sm:w-56 rounded-xl overflow-hidden shadow-md shrink-0 relative group">
+                <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Cultural Fest">
+                
+            </div>
+
+            <!-- Duplicate items for infinite seamless scroll loop -->
+            <div class="h-38 w-44 sm:h-32 sm:w-56 rounded-xl overflow-hidden shadow-md shrink-0 relative group">
+                <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Campus">
+                
+            </div>
+            <div class="h-38 w-44 sm:h-32 sm:w-56 rounded-xl overflow-hidden shadow-md shrink-0 relative group">
+                <img src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Science">
+                
+            </div>
+            <div class="h-38 w-44 sm:h-32 sm:w-56 rounded-xl overflow-hidden shadow-md shrink-0 relative group">
+                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Sports">
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PRINCIPAL'S DESK & ABOUT US -->
+    <section id="about" class="py-16 px-4 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-4 text-center">
+                <div class="w-44 h-44 sm:w-52 sm:h-52 mx-auto bg-slate-200 rounded-2xl border-4 border-brandGold overflow-hidden shadow-xl flex items-center justify-center text-slate-400">
+                    <i class="fa-solid fa-user-tie text-7xl text-slate-400"></i>
+                </div>
+                <h4 class="text-lg font-bold text-brandNavy mt-4 font-heading">Principal's Message</h4>
+                <p class="text-xs text-slate-500 font-medium">प्रधानाचार्य का संदेश • JP Inter College</p>
+            </div>
+
+            <div class="lg:col-span-8 space-y-4">
+                <h3 class="text-2xl sm:text-3xl font-bold font-heading text-brandNavy">
+                    Our Vision & Academic Mission (हमारा उद्देश्य)
+                </h3>
+                <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                    Jai Prakash Inter College ka uddeshya vidyarthiyon ko kewal pustakiya gyan dena nahi, balki unke charitra, anushasan aur intellectual capability ko enhance karna hai. Class 6th se lekar 12th tak har vidyarthi par vyaktigat dhyan dekar unhe board exams aur aage ke career ke liye taiyar kiya jata hai.
+                </p>
+                <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                    Hamare experienced faculty members aur modern infrastructure ke saath, hum ensure karte hain ki har student ko holistic education mile jo unke academic aur personal growth dono me madad kare.
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- 7. TOPPERS SECTION (COMPACT SINGLE ROW LAYOUT) -->
+    <section id="toppers" class="py-12 bg-slate-100 px-4">
+        <div class="max-w-6xl mx-auto">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-xl mx-auto mb-6">
+                <h3 class="text-2xl font-bold font-heading text-brandNavy">Star Achievers (हमारे मेधावी छात्र)</h3>
+                <p class="text-xs text-slate-500 mt-1">Board Examination Rankers • Academic Excellence</p>
+            </div>
+
+            <div class="space-y-5">
+                
+                <!-- ROW 1: 10th BOARD TOPPERS (Ek Hi Line Me 1st, 2nd, 3rd) -->
+                <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200">
+                    <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
+                        <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full">
+                            High School (10th Board)
+                        </span>
+                        <span class="text-xs text-slate-500 font-medium">Session Toppers</span>
+                    </div>
+
+                    <!-- Side-by-Side Flex Row -->
+                    <div class="flex flex-row gap-2 sm:gap-4 overflow-x-auto pb-1">
+                        <!-- 10th Rank 1 -->
+                        <div class="flex-1 min-w-[130px] sm:min-w-0 flex items-center gap-2.5 p-2 sm:p-3 rounded-xl bg-amber-50/70 border border-amber-200">
+                            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-200 border-2 border-brandGold flex items-center justify-center shrink-0 text-slate-400 overflow-hidden">
+                                <i class="fa-solid fa-user-graduate text-sm sm:text-base text-brandNavy"></i>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <div class="flex items-center gap-1">
+                                    <h5 class="font-bold text-slate-800 text-[11px] sm:text-xs truncate">Priya Sharma</h5>
+                                    <span class="bg-amber-400 text-slate-900 text-[8px] sm:text-[9px] font-bold px-1 rounded">1st</span>
+                                </div>
+                                <p class="text-[11px] sm:text-xs font-bold text-brandMaroon">94.8%</p>
+                                <p class="text-[9px] sm:text-[10px] text-slate-400">Class 10th</p>
+                            </div>
+                        </div>
+
+                        <!-- 10th Rank 2 -->
+                        <div class="flex-1 min-w-[130px] sm:min-w-0 flex items-center gap-2.5 p-2 sm:p-3 rounded-xl bg-slate-50 border border-slate-200">
+                            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-200 border-2 border-slate-300 flex items-center justify-center shrink-0 text-slate-400 overflow-hidden">
+                                <i class="fa-solid fa-user-graduate text-sm sm:text-base text-brandNavy"></i>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <div class="flex items-center gap-1">
+                                    <h5 class="font-bold text-slate-800 text-[11px] sm:text-xs truncate">Shivam Mishra</h5>
+                                    <span class="bg-slate-300 text-slate-800 text-[8px] sm:text-[9px] font-bold px-1 rounded">2nd</span>
+                                </div>
+                                <p class="text-[11px] sm:text-xs font-bold text-brandMaroon">92.2%</p>
+                                <p class="text-[9px] sm:text-[10px] text-slate-400">Class 10th</p>
+                            </div>
+                        </div>
+
+                        <!-- 10th Rank 3 -->
+                        <div class="flex-1 min-w-[130px] sm:min-w-0 flex items-center gap-2.5 p-2 sm:p-3 rounded-xl bg-slate-50 border border-slate-200">
+                            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-200 border-2 border-amber-700/30 flex items-center justify-center shrink-0 text-slate-400 overflow-hidden">
+                                <i class="fa-solid fa-user-graduate text-sm sm:text-base text-brandNavy"></i>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <div class="flex items-center gap-1">
+                                    <h5 class="font-bold text-slate-800 text-[11px] sm:text-xs truncate">Anjali Singh</h5>
+                                    <span class="bg-amber-700/20 text-amber-900 text-[8px] sm:text-[9px] font-bold px-1 rounded">3rd</span>
+                                </div>
+                                <p class="text-[11px] sm:text-xs font-bold text-brandMaroon">90.6%</p>
+                                <p class="text-[9px] sm:text-[10px] text-slate-400">Class 10th</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROW 2: 12th BOARD TOPPERS (Ek Hi Line Me 1st, 2nd, 3rd) -->
+                <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200">
+                    <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
+                        <span class="bg-rose-100 text-brandMaroon text-[11px] font-bold px-2.5 py-0.5 rounded-full">
+                            Intermediate (12th Board)
+                        </span>
+                        <span class="text-xs text-slate-500 font-medium">Session Toppers</span>
+                    </div>
+
+                    <!-- Side-by-Side Flex Row -->
+                    <div class="flex flex-row gap-2 sm:gap-4 overflow-x-auto pb-1">
+                        <!-- 12th Rank 1 -->
+                        <div class="flex-1 min-w-[130px] sm:min-w-0 flex items-center gap-2.5 p-2 sm:p-3 rounded-xl bg-amber-50/70 border border-amber-200">
+                            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-200 border-2 border-brandGold flex items-center justify-center shrink-0 text-slate-400 overflow-hidden">
+                                <i class="fa-solid fa-user-graduate text-sm sm:text-base text-brandNavy"></i>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <div class="flex items-center gap-1">
+                                    <h5 class="font-bold text-slate-800 text-[11px] sm:text-xs truncate">Amit Kumar</h5>
+                                    <span class="bg-amber-400 text-slate-900 text-[8px] sm:text-[9px] font-bold px-1 rounded">1st</span>
+                                </div>
+                                <p class="text-[11px] sm:text-xs font-bold text-brandMaroon">95.2% (Sci)</p>
+                                <p class="text-[9px] sm:text-[10px] text-slate-400">Class 12th</p>
+                            </div>
+                        </div>
+
+                        <!-- 12th Rank 2 -->
+                        <div class="flex-1 min-w-[130px] sm:min-w-0 flex items-center gap-2.5 p-2 sm:p-3 rounded-xl bg-slate-50 border border-slate-200">
+                            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-200 border-2 border-slate-300 flex items-center justify-center shrink-0 text-slate-400 overflow-hidden">
+                                <i class="fa-solid fa-user-graduate text-sm sm:text-base text-brandNavy"></i>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <div class="flex items-center gap-1">
+                                    <h5 class="font-bold text-slate-800 text-[11px] sm:text-xs truncate">Rohit Verma</h5>
+                                    <span class="bg-slate-300 text-slate-800 text-[8px] sm:text-[9px] font-bold px-1 rounded">2nd</span>
+                                </div>
+                                <p class="text-[11px] sm:text-xs font-bold text-brandMaroon">93.4% (Arts)</p>
+                                <p class="text-[9px] sm:text-[10px] text-slate-400">Class 12th</p>
+                            </div>
+                        </div>
+
+                        <!-- 12th Rank 3 -->
+                        <div class="flex-1 min-w-[130px] sm:min-w-0 flex items-center gap-2.5 p-2 sm:p-3 rounded-xl bg-slate-50 border border-slate-200">
+                            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-200 border-2 border-amber-700/30 flex items-center justify-center shrink-0 text-slate-400 overflow-hidden">
+                                <i class="fa-solid fa-user-graduate text-sm sm:text-base text-brandNavy"></i>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <div class="flex items-center gap-1">
+                                    <h5 class="font-bold text-slate-800 text-[11px] sm:text-xs truncate">Kavita Yadav</h5>
+                                    <span class="bg-amber-700/20 text-amber-900 text-[8px] sm:text-[9px] font-bold px-1 rounded">3rd</span>
+                                </div>
+                                <p class="text-[11px] sm:text-xs font-bold text-brandMaroon">91.8% (Sci)</p>
+                                <p class="text-[9px] sm:text-[10px] text-slate-400">Class 12th</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. CONTACT & GOOGLE MAPS -->
+    <section id="contact" class="py-16 bg-white border-t border-slate-200 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div>
+                <h3 class="text-2xl font-bold font-heading text-brandNavy mb-3">Connect With Us (संपर्क करें)</h3>
+                <p class="text-xs text-slate-600 mb-6">Admissions, certificate inquiry ya campus visit ke liye college office contact karein:</p>
+                
+                <div class="space-y-4 text-sm">
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-location-dot text-brandMaroon mt-1 text-base"></i>
+                        <div>
+                            <strong class="text-slate-800">Campus Location:</strong>
+                            <p class="text-slate-600 text-xs mt-0.5">Jai Prakash Inter College, Bheriya, Uttar Pradesh (भेड़िया, उप्र)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-phone text-brandMaroon mt-1 text-base"></i>
+                        <div>
+                            <strong class="text-slate-800">Helpline Number:</strong>
+                            <p class="text-slate-600 text-xs mt-0.5">+91 98765 43210</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-envelope text-brandMaroon mt-1 text-base"></i>
+                        <div>
+                            <strong class="text-slate-800">Official Email:</strong>
+                            <p class="text-slate-600 text-xs mt-0.5">info@jpintercollege.in</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-clock text-brandMaroon mt-1 text-base"></i>
+                        <div>
+                            <strong class="text-slate-800">Office Working Hours:</strong>
+                            <p class="text-slate-600 text-xs mt-0.5">Monday to Saturday: 08:00 AM – 02:00 PM (Sunday Closed)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Google Maps -->
+            <div class="rounded-2xl overflow-hidden shadow-md border border-slate-200 h-64 bg-slate-200">
+                <iframe 
+                    title="Jai Prakash Inter College Location" 
+                    src="https://maps.google.com/maps?q=Bheriya,Uttar+Pradesh&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FOOTER WITH QUICK LINKS -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-12 px-4 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            
+            <!-- Col 1 -->
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-brandNavy text-brandGold rounded-full flex items-center justify-center font-heading text-sm font-bold border border-brandGold">
+                        JP
+                    </div>
+                    <h5 class="text-white font-heading font-bold text-sm">Jai Prakash Inter College</h5>
+                </div>
+                <p class="leading-relaxed text-slate-400">
+                    Bheriya, Uttar Pradesh. Providing disciplined, value-oriented and quality education for classes 6th to 12th.
+                </p>
+                <p class="text-[11px]"><i class="fa-solid fa-phone text-brandGold mr-1"></i> +91 98765 43210</p>
+            </div>
+
+            <!-- Col 2: Quick Links -->
+            <div>
+                <h5 class="text-white font-bold text-sm mb-3.5 border-b border-slate-800 pb-2">Quick Links (त्वरित लिंक)</h5>
+                <ul class="space-y-2">
+                    <li><a href="#about" class="hover:text-brandGold transition"><i class="fa-solid fa-chevron-right text-[10px] mr-1 text-slate-600"></i> About Us (परिचय)</a></li>
+                    <li><button onclick="openModal('academicsModal')" class="hover:text-brandGold transition text-left"><i class="fa-solid fa-chevron-right text-[10px] mr-1 text-slate-600"></i> Academic Wings (संकाय)</button></li>
+                    <li><button onclick="openModal('facilitiesModal')" class="hover:text-brandGold transition text-left"><i class="fa-solid fa-chevron-right text-[10px] mr-1 text-slate-600"></i> Campus Facilities (सुविधाएं)</button></li>
+                    <li><button onclick="openModal('facultyModal')" class="hover:text-brandGold transition text-left"><i class="fa-solid fa-chevron-right text-[10px] mr-1 text-slate-600"></i> Faculty Members (शिक्षक)</button></li>
+                    <li><a href="#toppers" class="hover:text-brandGold transition"><i class="fa-solid fa-chevron-right text-[10px] mr-1 text-slate-600"></i> Star Achievers (मेधावी)</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Admissions & Portals -->
+            <div>
+                <h5 class="text-white font-bold text-sm mb-3.5 border-b border-slate-800 pb-2">Student & Parent Desk</h5>
+                <ul class="space-y-2">
+                    <li>
+                        <button onclick="openModal('admissionModal')" class="text-brandGold font-semibold hover:underline flex items-center gap-1.5">
+                            <i class="fa-solid fa-file-circle-check text-xs"></i> Online Admission Form
+                        </button>
+                    </li>
+                    <li><a href="#contact" class="hover:text-white transition"><i class="fa-solid fa-chevron-right text-[10px] mr-1 text-slate-600"></i> Helpdesk & Contact</a></li>
+                    <li><a href="/admin/" target="_blank" class="hover:text-white transition"><i class="fa-solid fa-lock text-[10px] mr-1 text-slate-600"></i> Staff / Teacher CMS Login</a></li>
+                    <li><a href="https://wa.me/919876543210" target="_blank" class="text-emerald-400 hover:underline flex items-center gap-1.5"><i class="fa-brands fa-whatsapp"></i> WhatsApp Inquiry</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Affiliation & Socials -->
+            <div>
+                <h5 class="text-white font-bold text-sm mb-3.5 border-b border-slate-800 pb-2">Affiliation & Social</h5>
+                <p class="leading-relaxed text-slate-400 mb-3">
+                    Recognized by Uttar Pradesh Madhyamik Shiksha Parishad (UPMSP), Prayagraj.
+                </p>
+                <div class="flex gap-3 text-base text-slate-300 pt-1">
+                    <a href="#" aria-label="Facebook" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-brandGold hover:text-slate-900 transition flex items-center justify-center"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/919876543210" aria-label="WhatsApp" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-emerald-500 hover:text-white transition flex items-center justify-center"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" aria-label="YouTube" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-red-600 hover:text-white transition flex items-center justify-center"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto mt-10 pt-6 border-t border-slate-800 text-center text-[11px] text-slate-500">
+            <p>© 2026 Jai Prakash Inter College, Bheriya. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ==================== POP-UP MODALS ==================== -->
+
+    <!-- MODAL 1: ADMISSION FORM -->
+    <div id="admissionModal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full my-8 overflow-hidden relative">
+            <div class="bg-brandNavy text-white p-5 flex items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-heading font-bold">Online Admission Registration (2026-27)</h3>
+                    <p class="text-xs text-slate-300 mt-0.5">Class 6th se 12th tak prabesh hetu form bharein</p>
+                </div>
+                <button onclick="closeModal('admissionModal')" class="text-slate-300 hover:text-white text-2xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form name="admission-enquiry" method="POST" data-netlify="true" action="/thank_you.html" class="p-6 space-y-4">
+                <input type="hidden" name="form-name" value="admission-enquiry" />
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Student's Name (छात्र का नाम) *</label>
+                        <input type="text" name="student_name" required placeholder="Enter student name" class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-brandNavy">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Father's Name (पिता का नाम) *</label>
+                        <input type="text" name="father_name" required placeholder="Enter father's name" class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-brandNavy">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Contact Number (मोबाइल) *</label>
+                        <input type="tel" name="mobile" required pattern="[0-9]{10}" placeholder="10-digit mobile" class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-brandNavy">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Target Class (कक्षा) *</label>
+                        <select name="class_applied" required class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-brandNavy">
+                            <option value="">Select Class...</option>
+                            <option value="Class 6">Class 6th</option>
+                            <option value="Class 7">Class 7th</option>
+                            <option value="Class 8">Class 8th</option>
+                            <option value="Class 9">Class 9th</option>
+                            <option value="Class 10">Class 10th</option>
+                            <option value="Class 11 Science">Class 11th - Science</option>
+                            <option value="Class 11 Arts">Class 11th - Arts</option>
+                            <option value="Class 12 Science">Class 12th - Science</option>
+                            <option value="Class 12 Arts">Class 12th - Arts</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Address / Village (पता) *</label>
+                    <textarea name="address" rows="2" required placeholder="Village, Post Office..." class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-brandNavy"></textarea>
+                </div>
+
+                <div class="text-right pt-2 flex justify-end gap-3">
+                    <button type="button" onclick="closeModal('admissionModal')" class="px-4 py-2 border border-slate-300 rounded-lg text-slate-600 text-sm font-medium hover:bg-slate-100">Cancel</button>
+                    <button type="submit" class="bg-brandMaroon hover:bg-red-900 text-white font-bold px-6 py-2 rounded-lg shadow text-sm">
+                        Submit Form (जमा करें)
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: ACADEMICS MODAL -->
+    <div id="academicsModal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full my-8 overflow-hidden relative max-h-[85vh] flex flex-col">
+            <div class="bg-brandNavy text-white p-5 flex items-center justify-between shrink-0">
+                <div>
+                    <h3 class="text-xl font-heading font-bold">Academic Wings & Streams (संकाय)</h3>
+                    <p class="text-xs text-slate-300 mt-0.5">Classes 6th to 12th (UPMSP Board)</p>
+                </div>
+                <button onclick="closeModal('academicsModal')" class="text-slate-300 hover:text-white text-2xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-6 overflow-y-auto space-y-6">
+                <!-- Middle Wing -->
+                <div class="p-4 bg-slate-50 rounded-xl border-l-4 border-emerald-600 border border-slate-200">
+                    <h4 class="font-bold text-slate-800 text-base font-heading">1. Middle Wing (कक्षा 6 से 8)</h4>
+                    <p class="text-xs text-slate-600 mt-1">Subjects: Hindi, English, Sanskrit, Mathematics, Science, Social Studies, Art & Basic Computers.</p>
+                </div>
+                <!-- High School -->
+                <div class="p-4 bg-slate-50 rounded-xl border-l-4 border-blue-600 border border-slate-200">
+                    <h4 class="font-bold text-slate-800 text-base font-heading">2. High School (कक्षा 9 व 10)</h4>
+                    <p class="text-xs text-slate-600 mt-1">UP Board complete curriculum with science practicals, mathematics, social studies, hindi and english mentorship.</p>
+                </div>
+                <!-- Intermediate -->
+                <div class="p-4 bg-slate-50 rounded-xl border-l-4 border-brandMaroon border border-slate-200">
+                    <h4 class="font-bold text-slate-800 text-base font-heading">3. Intermediate (कक्षा 11 व 12)</h4>
+                    <p class="text-xs text-slate-600 mt-1"><strong>Science Stream:</strong> Physics, Chemistry, Mathematics / Biology, General Hindi & English.</p>
+                    <p class="text-xs text-slate-600 mt-1"><strong>Arts Stream:</strong> History, Civics, Geography, Sociology, Hindi Literature & English.</p>
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-slate-200 bg-slate-50 text-right">
+                <button onclick="closeModal('academicsModal')" class="px-5 py-2 bg-brandNavy text-white rounded-lg text-xs font-semibold hover:bg-slate-800">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 3: FACILITIES MODAL -->
+    <div id="facilitiesModal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full my-8 overflow-hidden relative max-h-[85vh] flex flex-col">
+            <div class="bg-brandNavy text-white p-5 flex items-center justify-between shrink-0">
+                <div>
+                    <h3 class="text-xl font-heading font-bold">Campus Infrastructure & Facilities (सुविधाएं)</h3>
+                    <p class="text-xs text-slate-300 mt-0.5">Modern educational & sports amenities</p>
+                </div>
+                <button onclick="closeModal('facilitiesModal')" class="text-slate-300 hover:text-white text-2xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-6 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <i class="fa-solid fa-microscope text-2xl text-indigo-600 mb-2"></i>
+                    <h4 class="font-bold text-slate-800 text-sm">Science Laboratories</h4>
+                    <p class="text-xs text-slate-500 mt-1">Fully equipped Physics, Chemistry & Biology labs for senior practical exams.</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <i class="fa-solid fa-desktop text-2xl text-sky-600 mb-2"></i>
+                    <h4 class="font-bold text-slate-800 text-sm">Computer Lab</h4>
+                    <p class="text-xs text-slate-500 mt-1">Digital education and practical computing skills starting from class 6th.</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <i class="fa-solid fa-book-bookmark text-2xl text-emerald-600 mb-2"></i>
+                    <h4 class="font-bold text-slate-800 text-sm">Library & Study Hall</h4>
+                    <p class="text-xs text-slate-500 mt-1">Rich collection of reference guides, UP board sample papers and literature books.</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <i class="fa-solid fa-volleyball text-2xl text-rose-600 mb-2"></i>
+                    <h4 class="font-bold text-slate-800 text-sm">Playground & Athletics</h4>
+                    <p class="text-xs text-slate-500 mt-1">Spacious playground for cricket, volleyball, racing and annual sports training.</p>
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-slate-200 bg-slate-50 text-right">
+                <button onclick="closeModal('facilitiesModal')" class="px-5 py-2 bg-brandNavy text-white rounded-lg text-xs font-semibold hover:bg-slate-800">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 4: FACULTY & TEACHERS -->
+    <div id="facultyModal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full my-8 overflow-hidden relative max-h-[85vh] flex flex-col">
+            <div class="bg-brandNavy text-white p-5 flex items-center justify-between shrink-0">
+                <div>
+                    <h3 class="text-xl font-heading font-bold">Our Faculty & Mentors (शिक्षक मंडल)</h3>
+                    <p class="text-xs text-slate-300 mt-0.5">Dedicated and experienced educators</p>
+                </div>
+                <button onclick="closeModal('facultyModal')" class="text-slate-300 hover:text-white text-2xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-6 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center">
+                    <div class="w-16 h-16 mx-auto bg-slate-200 rounded-full flex items-center justify-center text-slate-500 mb-2 border border-brandGold">
+                        <i class="fa-solid fa-chalkboard-user text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-sm">Dr. S. K. Sharma</h4>
+                    <p class="text-[11px] font-bold text-brandMaroon">Physics Lecturer</p>
+                    <p class="text-[10px] text-slate-500">M.Sc. (Physics), B.Ed. • 15+ Yrs Exp.</p>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center">
+                    <div class="w-16 h-16 mx-auto bg-slate-200 rounded-full flex items-center justify-center text-slate-500 mb-2 border border-brandGold">
+                        <i class="fa-solid fa-chalkboard-user text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-sm">Mr. R. P. Verma</h4>
+                    <p class="text-[11px] font-bold text-brandMaroon">Chemistry Lecturer</p>
+                    <p class="text-[10px] text-slate-500">M.Sc. (Chem), B.Ed. • 12+ Yrs Exp.</p>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center">
+                    <div class="w-16 h-16 mx-auto bg-slate-200 rounded-full flex items-center justify-center text-slate-500 mb-2 border border-brandGold">
+                        <i class="fa-solid fa-chalkboard-user text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-sm">Mr. A. K. Mishra</h4>
+                    <p class="text-[11px] font-bold text-brandMaroon">Mathematics Faculty</p>
+                    <p class="text-[10px] text-slate-500">M.Sc. (Maths), B.Ed. • 10+ Yrs Exp.</p>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center">
+                    <div class="w-16 h-16 mx-auto bg-slate-200 rounded-full flex items-center justify-center text-slate-500 mb-2 border border-brandGold">
+                        <i class="fa-solid fa-chalkboard-user text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-sm">Mrs. Sunita Pandey</h4>
+                    <p class="text-[11px] font-bold text-brandMaroon">Biology Faculty</p>
+                    <p class="text-[10px] text-slate-500">M.Sc. (Botany), B.Ed. • 8+ Yrs Exp.</p>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center">
+                    <div class="w-16 h-16 mx-auto bg-slate-200 rounded-full flex items-center justify-center text-slate-500 mb-2 border border-brandGold">
+                        <i class="fa-solid fa-chalkboard-user text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-sm">Mr. Rajesh Singh</h4>
+                    <p class="text-[11px] font-bold text-brandMaroon">English Faculty</p>
+                    <p class="text-[10px] text-slate-500">M.A. (English), B.Ed. • 11+ Yrs Exp.</p>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center">
+                    <div class="w-16 h-16 mx-auto bg-slate-200 rounded-full flex items-center justify-center text-slate-500 mb-2 border border-brandGold">
+                        <i class="fa-solid fa-chalkboard-user text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-sm">Acharya D. N. Shukla</h4>
+                    <p class="text-[11px] font-bold text-brandMaroon">Hindi & Sanskrit</p>
+                    <p class="text-[10px] text-slate-500">M.A., Sahityacharya • 18+ Yrs Exp.</p>
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-slate-200 bg-slate-50 text-right">
+                <button onclick="closeModal('facultyModal')" class="px-5 py-2 bg-brandNavy text-white rounded-lg text-xs font-semibold hover:bg-slate-800">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Modal Controllers
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.addEventListener('click', function(e) {
+            if (e.target.id === 'admissionModal') closeModal('admissionModal');
+            if (e.target.id === 'facultyModal') closeModal('facultyModal');
+            if (e.target.id === 'academicsModal') closeModal('academicsModal');
+            if (e.target.id === 'facilitiesModal') closeModal('facilitiesModal');
+        });
+
+        // Mobile Menu
+        const menuBtn = document.getElementById('menuToggleBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMobileMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
+    </script>
 </body>
 </html>
